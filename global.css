@@ -1,0 +1,16 @@
+:root {
+  --background-surface: #EFEFEF;
+  --primaryColor: #43281C;
+  --secondaryColor: #333D29;
+  --color3: #7F4F24;
+  --color4: #B08968;
+  --color5: #DDB892;
+  --color6: #EDE0D4;
+  --highlight: #FBF2C6;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}

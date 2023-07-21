@@ -1,0 +1,38 @@
+[
+  {
+    "id": 11,
+    "name": "Birthday Party",
+    "date": "2023-01-01",
+    "time": "12:00pm",
+    "location": "123 Main St",
+    "description": "Come celebrate my birthday!",
+    "image": "birthday.png"
+  },
+  {
+    "id": 12,
+    "name": "House Party",
+    "date": "2023-01-01",
+    "time": "12:00pm",
+    "location": "123 Main St",
+    "description": "Come watch some bands play!",
+    "image": "house-party.png"
+  },
+  {
+    "id": 13,
+    "name": "D&D Session: Waterdeep Dragon Heist",
+    "date": "2023-01-01",
+    "time": "12:00pm",
+    "location": "123 Main St",
+    "description": "Come celebrate my birthday!",
+    "image": "dnd.png"
+  },
+  {
+    "id": 14,
+    "name": "Horror Movie Night",
+    "date": "2023-01-01",
+    "time": "12:00pm",
+    "location": "123 Main St",
+    "description": "Come watch some scary movies!",
+    "image": "horror-movie.png"
+  }
+]

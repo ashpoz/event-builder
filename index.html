@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Builder</title>
+  <script src="app.js" defer type="module"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a data-router-link href="/login">Login</a>
+      <a data-router-link href="/profile">Profile</a>
+      <a data-router-link href="/">My Events</a>
+      <a data-router-link href="/create">Create Event</a>
+    </nav>
+  </header>
+
+  <main></main>
+
+  <template id="login-template">
+    <h2>Login</h2>
+    <form>
+      <label for="email">Email</label>
+      <input name="email" required>
+      <label for="password">Password</label>
+      <input name="password" type="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <!-- figure out why inner links dont work -->
+    <a data-router-link href="#" onclick="app.router.go('/signup'); event.preventDefault()">Don't have an account? Sign
+      up!</a>
+  </template>
+
+  <template id="signup-template">
+    <h2>Signup</h2>
+    <form>
+      <label for="firstname">First Name</label>
+      <input name="firstname" required>
+      <label for="lastname">Last Name</label>
+      <input name="lastname" required>
+      <label for="password">Create Password</label>
+      <input name="password" type="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </template>
+
+  <template id="profile-template">
+    <h2>My Profile</h2>
+    <img src="" alt="">
+    <h3>My Name</h3>
+    <p>Username</p>
+    <button>Edit</button>
+    <button>Delete</button>
+  </template>
+
+  <template id="event-list-template">
+    <section>
+      <h2>My Events</h2>
+      <ul id="event-list"></ul>
+    </section>
+  </template>
+
+  <template id="event-template">
+    <article>
+      <a href="#">
+        <img>
+        <section>
+          <div>
+            <h4>[Event name]</h4>
+            <p>[Event date]</p>
+            <p>[Event time]</p>
+          </div>
+          <button>Edit</button>
+          <button>Share</button>
+        </section>
+      </a>
+    </article>
+  </template>
+
+  <template id="event-details-template">
+    <header>
+      <a data-router-link href="#" onclick="app.router.go('/'); event.preventDefault()">Back</a>
+    </header>
+    <img class="event-image" src="" alt="">
+    <h2 class="event-name">[Event name]</h2>
+    <p class="event-date">[Event date]</p>
+    <p class="event-time">[Event time]</p>
+    <p class="event-location">[Event location]</p>
+    <p class="event-description">[Event description]</p>
+    <button>Edit</button>
+    <button>Delete</button>
+  </template>
+
+  <template id="event-builder-template">
+    <h2>Create Event</h2>
+    <form>
+      <label for="name">Event Name</label>
+      <input name="name" required>
+      <label for="date">Event Date</label>
+      <input name="date" type="date" required>
+      <label for="time">Event Time</label>
+      <input name="time" type="time" required>
+      <label for="location">Event Location</label>
+      <input name="location" required>
+      <label for="description">Event Description</label>
+      <textarea name="description"></textarea>
+      <label for="description">Event Image</label>
+      <input type="text">
+      <button type="submit">Create Event</button>
+    </form>
+  </template>
+</body>
+
+</html>
