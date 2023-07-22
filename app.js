@@ -1,4 +1,6 @@
 import Router from "./services/Router.js";
+import Store from "./services/Store.js";
+import { getEvents } from "./services/LoadEvents.js";
 import defineCustomElements from "./utils/defineCustomElements.js";
 import { LoginPage } from "./components/LoginPage.js";
 import { SignupPage } from "./components/SignupPage.js";
@@ -18,8 +20,10 @@ const components = {
 defineCustomElements(components);
 
 window.app = {};
-app.router = Router
+app.router = Router;
+app.store = Store;
 
 window.addEventListener("DOMContentLoaded", () => {
+  getEvents();
   app.router.init();
 });
