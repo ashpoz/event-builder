@@ -1,4 +1,5 @@
-import createTemplate from "../utils/createTemplate.js";
+import { createTemplate } from "../utils/webComponents.js";
+import { loadCSS } from "../utils/loadFiles.js";
 
 export class EventsPage extends HTMLElement {
   constructor() {
@@ -18,7 +19,7 @@ export class EventsPage extends HTMLElement {
         const eventItem = document.createElement("li");
         eventItem.innerHTML = `
           <a href="#event/${event.id}">
-            <h2>${event.name}</h2>
+            <h3>${event.name}</h3>
             <p>${event.date}</p>
             <p>${event.time}</p>
             <p>${event.location}</p>

@@ -1,4 +1,4 @@
-import createTemplate from "../utils/createTemplate.js";
+import { createTemplate } from "../utils/webComponents.js";
 
 export class SignupPage extends HTMLElement {
   constructor() {

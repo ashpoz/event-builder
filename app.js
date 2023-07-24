@@ -1,7 +1,7 @@
 import Router from "./services/Router.js";
 import Store from "./services/Store.js";
 import { getEvents } from "./services/LoadEvents.js";
-import defineCustomElements from "./utils/defineCustomElements.js";
+import { defineCustomElements } from "./utils/webComponents.js";
 import { LoginPage } from "./components/LoginPage.js";
 import { SignupPage } from "./components/SignupPage.js";
 import { ProfilePage } from "./components/ProfilePage.js";
