@@ -1,13 +1,42 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto-light-webfont.woff2") format('woff2');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto-regular-webfont.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto-medium-webfont.woff2") format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto-bold-webfont.woff2") format('woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto-black-webfont.woff2") format('woff2');
+  font-weight: 900;
+}
+
+
 :root {
   /* colors */
-  --background-surface: #EFEFEF;
-  --primaryColor: pink;
-  --secondaryColor: #333D29;
-  --color3: #7F4F24;
-  --color4: #B08968;
-  --color5: #DDB892;
-  --color6: #EDE0D4;
-  --highlight: #FBF2C6;
+  --background-surface: #fdebde;
+  --primary-color: #f07924;
+  --secondary-color: #f9caa9;
+  --accent-color: #c85c0e;
+  --text-color: #180B02;
+  --success-color: #7bed9f;
+  --error-color: #ff6348;
   /* padding & margins */
   --padding-xs: 0.5rem;
   --padding-sm: 0.75rem;
@@ -22,6 +51,13 @@
   --margin-lg: 2rem;
   --margin-xl: 3rem;
   --margin-2xl: 4rem;
+  /* fonts */
+  --font-family: "Roboto";
+  --font-weight-light: 100;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
   /* font sizes */
   --font-base: 18px;
   --font-xs: 0.75rem;
@@ -44,9 +80,12 @@ html {
 }
 
 body {
-  padding: 0;
+  background-color: var(--background-surface);
+  font-family: sans-serif;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  padding: 0;
 }
 
 main {
@@ -55,8 +94,6 @@ main {
 }
 
 header {
-  background-color: var(--primaryColor);
-  color: var(--highlight);
   padding: var(--padding-md);
 }
 
@@ -108,12 +145,20 @@ h2 {
   width: 100%;
 }
 
+.success {
+  background-color: var(--success-color);
+}
+
+.error {
+  background-color: var(--error-color);
+}
+
 /* components */
 
 form label, form input, form textarea {
   display: block;
   font-size: var(--font-base);
-  margin: var(--margin-2xs) 0;
+  margin: var(--margin-2xs) 0 var(--margin-sm) 0;
   width: 100%;
 }
 
@@ -122,14 +167,17 @@ form input, form textarea {
 }
 
 button {
-  background-color: var(--secondaryColor);
+  background-color: var(--primary-color);
   border: none;
   border-radius: 5px;
-  color: white;
   cursor: pointer;
   font-size: var(--font-md);
   margin: var(--margin-md) 0;
   padding: var(--padding-md) var(--padding-lg);
+}
+
+button.secondary {
+  background-color: var(--secondary-color);
 }
 
 article {
