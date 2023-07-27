@@ -2,7 +2,7 @@ import Routes from "./Routes.js";
 
 // helper function to match route including dynamic routes
 // TODO: handle params and test nested routes
-function handleRoute(route) {
+const handleRoute = (route) => {
   let routeMatch = null;
   Object.keys(Routes).forEach(key => {
     // replace dynamic routes with regex
@@ -14,6 +14,12 @@ function handleRoute(route) {
   });
   // return route object or null
   return routeMatch;
+}
+
+const updateHistory = (route) => {
+  if (history.pushState) {
+    history.pushState({ route }, null, route);
+  }
 }
 
 const Router = {
@@ -34,7 +40,10 @@ const Router = {
     Router.go(location.pathname);
   },
   go: (route, addToHistory = true) => {
-    console.log("go to", route);
+
+    if (addToHistory) {
+      history.pushState({ route }, "", route);
+    }
 
     let pageElement = null;
     const currentRoute = handleRoute(route);

@@ -8,14 +8,22 @@ export class EventDetails extends HTMLElement {
   };
 
   connectedCallback() {
-    createTemplate("event-page-template", this);
+    createTemplate("event-details-template", this);
     this.render();
   }
 
   async render() {
-    if (this.dataset.eventId) {
-      let event = await getEventById(this.dataset.productId);
-      this.querySelector("h3").innerHTML = event.name;
+    // get event id from url
+    const eventId = window.location.pathname.match(/\/event\/(\d+)/)[1];
+
+    if (eventId) {
+      this.event = await getEventById(Number(eventId));
+      // update event details
+      this.querySelector(".event-name").innerHTML = this.event.name;
+      this.querySelector(".event-date").innerHTML = this.event.date;
+      this.querySelector(".event-time").innerHTML = this.event.time;
+      this.querySelector(".event-location").innerHTML = this.event.location;
+      this.querySelector(".event-description").innerHTML = this.event.description;
     }
   }
 }
