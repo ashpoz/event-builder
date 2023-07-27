@@ -18,7 +18,7 @@ export class EventsPage extends HTMLElement {
         const event = app.store.events[key];
         const eventItem = document.createElement("li");
         eventItem.innerHTML = `
-          <a href="#event/${event.id}">
+          <a data-event-id="${event.id}" onclick="app.router.go('/event/${event.id}'); event.preventDefault()">
             <h3>${event.name}</h3>
             <p>${event.date}</p>
             <p>${event.time}</p>

@@ -1,5 +1,21 @@
 import Routes from "./Routes.js";
 
+// helper function to match route including dynamic routes
+// TODO: handle params and test nested routes
+function handleRoute(route) {
+  let routeMatch = null;
+  Object.keys(Routes).forEach(key => {
+    // replace dynamic routes with regex
+    const regexRoute = new RegExp('^' + Routes[key].path.replace(/:\w+/g, '(\\w+)') + '$');
+    // check if route matches
+    if (route.match(regexRoute)) {
+      routeMatch = Routes[key];
+    }
+  });
+  // return route object or null
+  return routeMatch;
+}
+
 const Router = {
   init: () => {
     const routerLinks = document.querySelectorAll("[data-router-link]");
@@ -20,21 +36,15 @@ const Router = {
   go: (route, addToHistory = true) => {
     console.log("go to", route);
 
-    const routeData = Routes.find(r => r.path === route);
     let pageElement = null;
+    const currentRoute = handleRoute(route);
 
-    console.log(routeData);
-
-
-    if (!routeData) {
-      console.log("route not found");
-      console.log("route", route);
-      // TODO: show 404 page
-      return;
+    if (currentRoute) {
+      console.log("route found", currentRoute);
+      pageElement = document.createElement(`${currentRoute.name}`);
     } else {
-      console.log("route found");
-      history.pushState({ route }, "", route);
-      pageElement = document.createElement(`${routeData.name}`);
+      console.log("route not found");
+      // TODO: handle 404
     }
 
     const appMain = document.querySelector("main");

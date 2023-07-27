@@ -20,9 +20,9 @@ const Routes = [
     template: "event-list-template"
   },
   {
-    name: "event-details",
+    name: "event-page",
     path: "/event/:id",
-    template: "event-list-template"
+    template: "event-page-template"
   },
   {
     name: "event-builder",
